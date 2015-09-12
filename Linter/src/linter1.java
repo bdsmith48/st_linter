@@ -35,7 +35,7 @@ public class linter1 {
 	}
 	public static boolean semicolon(String line){
 		boolean okay = false;
-		Matcher match = Pattern.compile(";$").matcher(line);
+		Matcher match = Pattern.compile(".*"+Pattern.quote(";")+"$").matcher(line);
 		if(match.matches()){
 			okay = true;
 		}
@@ -47,13 +47,13 @@ public class linter1 {
 	public static boolean bracket(String line){
 		boolean okay = false;
 		if(line.length() == 1){
-			Matcher match = Pattern.compile("}$").matcher(line);
+			Matcher match = Pattern.compile(Pattern.quote("}")+"$").matcher(line);
 			if(match.matches()){
 				okay = true;
 			}
 		}
 		else{
-			Matcher match = Pattern.compile("{$").matcher(line);
+			Matcher match = Pattern.compile(".*"+Pattern.quote("{")+"$").matcher(line);
 			if(match.matches()){
 				okay = true;
 			}
