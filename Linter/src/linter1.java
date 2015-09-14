@@ -51,6 +51,8 @@ public class linter1 {
 		else if(line.matches(".*"+Pattern.quote("}")+"$")){
 			System.out.printf("<%d>. A closing brace must stand alone\n", num);
 		}
+		else if(line.matches("^\\s*$"))
+			okay = true;
 		else{
 			Matcher match = Pattern.compile(".*"+Pattern.quote("{")+"$").matcher(line);
 			Matcher matchAgain = Pattern.compile("/s*" + Pattern.quote("}")+"$").matcher(line);
