@@ -17,6 +17,12 @@ public class linter1 {
 				line = scan.nextLine();
 				line_num++;
 				semicolon(line, line_num);
+				whitespace(line, line_num);
+				if(!scan.hasNextLine()){
+					if(!newline(line, line_num)){
+						System.out.printf("Program should end with a new line");
+					}
+				}
 			}
 			scan.close();
 		} catch (FileNotFoundException e) {
@@ -67,6 +73,17 @@ public class linter1 {
 			}
 		}
 		return okay;
+	}
+	public static void whitespace(String line, int num){
+		if(line.matches("^.*\\s$")){
+			System.out.printf("<%d>. Trailing whitespace\n", num);
+		}
+	}
+	public static boolean newline(String line, int num){
+		if(line.matches("^$"))
+			return true;
+		else
+			return false;
 	}
 
 }
