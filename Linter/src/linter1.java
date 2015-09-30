@@ -20,6 +20,8 @@ public class linter1 {
 				whitespace(line, line_num);
 				equality(line, line_num);
 				apostrophe(line, line_num);
+				multiple(line, line_num);
+				length(line, line_num);
 				if(!scan.hasNextLine()){
 					newline(line, line_num);
 				}
@@ -95,6 +97,16 @@ public class linter1 {
 			if(!line.matches(".*'.*")){
 				System.out.printf("<%d>. Should use single quotes\n", num);
 			}
+		}
+	}
+	public static void multiple(String line, int num){
+		if(line.matches(".*;.*;")){
+			System.out.printf("<%d>. Use only one statement per line", num);
+		}
+	}
+	public static void length(String line, int num){
+		if(line.length() > 80){
+			System.out.printf("<%d>. Lines should not be longer than 80 characters\n", num);
 		}
 	}
 }
