@@ -19,6 +19,7 @@ public class linter1 {
 				semicolon(line, line_num);
 				whitespace(line, line_num);
 				equality(line, line_num);
+				apostrophe(line, line_num);
 				if(!scan.hasNextLine()){
 					newline(line, line_num);
 				}
@@ -86,6 +87,13 @@ public class linter1 {
 		if(line.matches(".*==.*")){
 			if(!line.matches(".*===.*")){
 				System.out.printf("<%d>. Should only use strict equality\n", num);
+			}
+		}
+	}
+	public static void apostrophe(String line, int num){
+		if(line.matches(".*\".*\".*")){
+			if(!line.matches(".*'.*")){
+				System.out.printf("<%d>. Should use single quotes\n", num);
 			}
 		}
 	}

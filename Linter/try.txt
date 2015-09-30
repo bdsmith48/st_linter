@@ -4,10 +4,13 @@ now what{
 {
 }
 	}
+'hi this is bailey';
+"hi this is bailey";
+"if you can't fix it"
+'if you ain't right';
 
-
-this == that
-this === that
+this == that;
+this === that;
 this is cool{
 this;
 {fasdfaasdf}
