@@ -6,9 +6,11 @@ now what{
 	}
 
 
-
+this == that
+this === that
 this is cool{
 this;
 {fasdfaasdf}
 lksjdfh      
-djjjjjjjjj
+hi;
+

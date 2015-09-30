@@ -18,10 +18,9 @@ public class linter1 {
 				line_num++;
 				semicolon(line, line_num);
 				whitespace(line, line_num);
+				equality(line, line_num);
 				if(!scan.hasNextLine()){
-					if(!newline(line, line_num)){
-						System.out.printf("Program should end with a new line");
-					}
+					newline(line, line_num);
 				}
 			}
 			scan.close();
@@ -48,7 +47,7 @@ public class linter1 {
 				okay = true;
 			}
 			else{
-				System.out.printf("<%d>. Only a closing brace can stand alone\n", num);
+				System.out.printf("<%d>. An opening brace cannot stand alone\n", num);
 			}
 		}
 		else if(line.matches("^\\t*"+Pattern.quote("}")+"$")){
@@ -79,11 +78,15 @@ public class linter1 {
 			System.out.printf("<%d>. Trailing whitespace\n", num);
 		}
 	}
-	public static boolean newline(String line, int num){
-		if(line.matches("^$"))
-			return true;
-		else
-			return false;
+	public static void newline(String line, int num){
+		if(!line.matches("^$"))
+			System.out.printf("<%d> Program should end with a new line", num);
 	}
-
+	public static void equality(String line, int num){
+		if(line.matches(".*==.*")){
+			if(!line.matches(".*===.*")){
+				System.out.printf("<%d>. Should only use strict equality\n", num);
+			}
+		}
+	}
 }
