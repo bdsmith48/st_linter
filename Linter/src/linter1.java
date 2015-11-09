@@ -57,7 +57,11 @@ public class linter1 {
 				okay = true;
 			}
 		else if(line.matches(".*"+Pattern.quote("}")+"$")){
-			System.out.printf("<%d>. A closing brace must stand alone\n", num);
+			if(line.matches(".*"+Pattern.quote("{")+".*"+Pattern.quote("}")))
+				okay = true;
+			else{
+				System.out.printf("<%d>. A closing brace must stand alone\n", num);
+			}
 		}
 		else if(line.matches("^\\s*$"))
 			okay = true;
