@@ -57,7 +57,11 @@ public class linter1 {
 				okay = true;
 			}
 		else if(line.matches(".*"+Pattern.quote("}")+"$")){
-			System.out.printf("<%d>. A closing brace must stand alone\n", num);
+			if(line.matches(".*"+Pattern.quote("{")+".*"+Pattern.quote("}")))
+				okay = true;
+			else{
+				System.out.printf("<%d>. A closing brace must stand alone\n", num);
+			}
 		}
 		else if(line.matches("^\\s*$"))
 			okay = true;
@@ -109,4 +113,7 @@ public class linter1 {
 			System.out.printf("<%d>. Lines should not be longer than 80 characters\n", num);
 		}
 	}
+//random extra line so that I can make a commit
+//need to make a new branch
+//new new new new
 }
